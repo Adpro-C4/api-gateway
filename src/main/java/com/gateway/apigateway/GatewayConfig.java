@@ -17,6 +17,8 @@ public class GatewayConfig {
                         .uri("https://specialitystorebackend.up.railway.app"))
                 .route("user-data-service", r -> r.path("/user/data/**")
                         .uri("https://specialitystorebackend.up.railway.app/data/"))
+                .route("product-data-service", r -> r.path("/product/all)
+                        .uri("https://microservice-katalog-production.up.railway.app/"))
                 .build();
     }
 }
