@@ -16,8 +16,10 @@ public class GatewayConfig {
                         .uri("https://purchase-service-specialitystore.up.railway.app"))
                 .route("auth-service", r -> r.path("/auth/**")
                         .uri("https://specialitystorebackend.up.railway.app"))
-                .route("user-data-service", r -> r.path("/data/customer/154")
-                        .uri("https://specialitystorebackend.up.railway.app/data/customer/154"))
+                .route("user-data-service", r -> r.path("/user/data/**")
+                        .uri("https://specialitystorebackend.up.railway.app/data/"))
+                .route("product-data-service", r -> r.path("/product/all")
+                        .uri("https://microservice-katalog-production.up.railway.app/"))
                 .build();
     }
     // https://specialitystorebackend.up.railway.app/data/customer/4
