@@ -10,14 +10,17 @@ public class GatewayConfig {
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        System.out.println("P");
         return builder.routes()
                 .route("purchase-service", r -> r.path("/purchase/**")
                         .uri("https://purchase-service-specialitystore.up.railway.app"))
                 .route("auth-service", r -> r.path("/auth/**")
                         .uri("https://specialitystorebackend.up.railway.app"))
-                .route("user-data-service", r -> r.path("/user/data/**")
-                        .uri("https://specialitystorebackend.up.railway.app/data/"))
+                .route("user-data-service", r -> r.path("/data/customer/154")
+                        .uri("https://specialitystorebackend.up.railway.app/data/customer/154"))
                 .build();
     }
+    // https://specialitystorebackend.up.railway.app/data/customer/4
+    // http://localhost:8080/user/data/customer/4
 }
 
