@@ -23,6 +23,9 @@ public class GatewayConfig {
                 .route("product-data-service", r -> r.path("/product-service/**")
                 .filters(f -> f.rewritePath("/product-service/(?<remaining>.*)", "/$\\{remaining}")) 
                         .uri("https://microservice-katalog-production.up.railway.app"))
+                .route("order-status-service", r -> r.path("/order-status-service/**")
+                .filters(f -> f.rewritePath("/order-status-service/(?<remaining>.*)", "/$\\{remaining}")) 
+                        .uri("https://microservice-status-production.up.railway.app"))
                 .build();
     }
 }
