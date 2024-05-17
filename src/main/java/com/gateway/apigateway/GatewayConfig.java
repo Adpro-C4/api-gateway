@@ -21,11 +21,14 @@ public class GatewayConfig {
                         .filters(f -> f.rewritePath("/user-data-service/(?<remaining>.*)", "/$\\{remaining}")) // Rewrite path agar sesuai dengan prefix
                         .uri("https://specialitystorebackend.up.railway.app/data"))
                 .route("product-data-service", r -> r.path("/product-service/**")
-                .filters(f -> f.rewritePath("/product-service/(?<remaining>.*)", "/$\\{remaining}")) 
+                        .filters(f -> f.rewritePath("/product-service/(?<remaining>.*)", "/$\\{remaining}")) 
                         .uri("https://microservice-katalog-production.up.railway.app"))
                 .route("order-status-service", r -> r.path("/order-status-service/**")
-                .filters(f -> f.rewritePath("/order-status-service/(?<remaining>.*)", "/$\\{remaining}")) 
+                        .filters(f -> f.rewritePath("/order-status-service/(?<remaining>.*)", "/$\\{remaining}")) 
                         .uri("https://microservice-status-production.up.railway.app"))
+                .route("voucher-service", r -> r.path("/voucher/**")
+                        .filters(f -> f.rewritePath("/voucher/(?<remaining>.*)", "/${remaining}"))
+                        .uri("http://34.143.184.254"))
                 .build();
     }
 }
